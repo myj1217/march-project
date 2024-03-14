@@ -28,7 +28,6 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
-<<<<<<< HEAD
 	implementation 'org.modelmapper:modelmapper:3.1.1'
 	implementation 'net.coobird:thumbnailator:0.4.19'
 
@@ -41,17 +40,17 @@ dependencies {
 
 
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-=======
-	implementation 'net.coobird:thumbnailator:0.4.19'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testCompileOnly 'org.projectlombok:lombok'
-	testAnnotationProcessor 'org.projectlombok:lombok'
->>>>>>> 3a85faff71cd0b387f7a5aa3f36e653556f4c4ae
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'com.google.code.gson:gson:2.10.1'
+
+	//JWT를 위한 라이브러리
+	implementation       'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly      'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly      'io.jsonwebtoken:jjwt-jackson:0.11.5'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-compileJava.dependsOn('clean')
