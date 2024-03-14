@@ -16,9 +16,6 @@ public interface MemberService {
 
 
 
-    //회원 등록하는 기능을 수행
-    //이미 동일한 id를 가진 회원이 존재하면 MidExistException을 처리한다.
-    //MidExistException은 회원등록시 중복된 id가 발생한경우 나타내는 예외
     void join(MemberJoinDTO memberJoinDTO) ;
 
     MemberSecurityDTO getKakaoMember(String accessToken);

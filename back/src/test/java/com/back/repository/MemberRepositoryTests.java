@@ -29,7 +29,7 @@ public class MemberRepositoryTests {
             Member member = Member.builder()
                     .email("user"+i+"@aaa.com")
                     .pw(passwordEncoder.encode("1111"))
-                    .nickname("USER"+i)
+                    .name("USER"+i)
                     .build();
 
             member.addRole(MemberRole.USER);
@@ -44,7 +44,23 @@ public class MemberRepositoryTests {
             memberRepository.save(member);
         }
     }
+    @Test
+    public void testInsertMember2(){
 
+            Member member = Member.builder()
+                    .email("11111@aaa.com")
+                    .pw(passwordEncoder.encode("1111"))
+                    .name("김OO")
+                    .nickname("테스트")
+                    .number("01012345678")
+                    .zipCode("1234")
+                    .streetAddress("12-34번지")
+                    .detailAddress("1층")
+                    .build();
+
+            member.addRole(MemberRole.USER);
+        memberRepository.save(member);
+        }
     @Test
     public void testRead() {
 
