@@ -29,7 +29,6 @@ public class ProductServiceImpl implements ProductService{
   private final ProductRepository productRepository;
   @Override
   public PageResponseDTO<ProductDTO> getList(PageRequestDTO pageRequestDTO) {
-
     log.info("getList..............");
 
     Pageable pageable = PageRequest.of( 
@@ -39,19 +38,18 @@ public class ProductServiceImpl implements ProductService{
     
     Page<Object[]>  result = productRepository.selectList(pageable);
 
-    
     List<ProductDTO> dtoList = result.get().map(arr -> {
 
       Product product = (Product) arr[0];
       ProductImage productImage = (ProductImage) arr[1];
 
       ProductDTO productDTO = ProductDTO.builder()
-      .pno(product.getPno())
-      .pname(product.getPname())
-      .pdesc(product.getPdesc())
-      .price(product.getPrice())
-.delFlag(product.isDelFlag())	// 추가수정
-      .build();
+              .pno(product.getPno())
+              .pname(product.getPname())
+              .pdesc(product.getPdesc())
+              .price(product.getPrice())
+              .delFlag(product.isDelFlag()) // 추가수정
+              .build();
 
       String imageStr = productImage.getFileName();
       productDTO.setUploadFileNames(List.of(imageStr));

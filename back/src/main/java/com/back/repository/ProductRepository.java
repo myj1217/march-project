@@ -13,9 +13,6 @@ import org.springframework.data.repository.query.Param;
 import com.back.domain.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>{
-    // @Query(value = "select now()", nativeQuery = true)
-    // String getTime();
-
     @EntityGraph(attributePaths = "imageList")
     @Query("select p from Product p where p.pno = :pno")
     Optional<Product> selectOne(@Param("pno") Long pno);

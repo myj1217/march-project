@@ -18,7 +18,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequestMapping("/api/cart")
 public class CartController {
-
     private final CartService cartService;
 
     @PreAuthorize("#itemDTO.email == authentication.name")
