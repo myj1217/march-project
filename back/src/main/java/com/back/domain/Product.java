@@ -34,18 +34,7 @@ public class Product {
     public void changeDesc(String desc){
         this.pdesc = desc;
     }
-    public void changeName(String name){
-        this.pname = name;
-    }
-    public void addImage(ProductImage image) {
-        image.setOrd(this.imageList.size());
-        imageList.add(image);
-    }
-    public void addImageString(String fileName){
-        ProductImage productImage = ProductImage.builder()
-                .fileName(fileName)
-                .build();
-        addImage(productImage);
+
     }
     public void clearList() {
         this.imageList.clear();
