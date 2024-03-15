@@ -40,9 +40,7 @@ public class CartServiceImpl implements CartService {
 
         //사용자의 카트
         Cart cart = getCart(email);
-
         CartItem cartItem = null;
-
         //이미 동일한 상품이 담긴적이 있을 수 있으므로
         cartItem = cartItemRepository.getItemOfPno(email, pno);
 
@@ -62,27 +60,19 @@ public class CartServiceImpl implements CartService {
 
     //사용자의 장바구니가 없었다면 새로운 장바구니를 생성하고 반환
     private Cart getCart(String email){
-
         Cart cart = null;
-
         Optional<Cart> result = cartRepository.getCartOfMember(email);
 
         if(result.isEmpty()) {
-
             log.info("Cart of the member is not exist!!");
 
             Member member = Member.builder().email(email).build();
-
             Cart tempCart = Cart.builder().owner(member).build();
-
             cart = cartRepository.save(tempCart);
-
         }else {
             cart = result.get();
         }
-
         return cart;
-
     }
 
     @Override

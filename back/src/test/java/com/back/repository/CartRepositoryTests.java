@@ -19,7 +19,6 @@ import lombok.extern.log4j.Log4j2;
 @SpringBootTest
 @Log4j2
 public class CartRepositoryTests {
-
     @Autowired
     private CartRepository cartRepository;
 
@@ -30,7 +29,6 @@ public class CartRepositoryTests {
     @Commit
     @Test
     public void testInsertByProduct() {
-
         log.info("test1-----------------------");
 
         //사용자가 전송하는 정보
