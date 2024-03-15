@@ -1,4 +1,5 @@
 
 .DS_Store
-back/src/main/resources/application.properties
-back/build.gradle
+application.properties
+build.gradle
+BackApplication.java
