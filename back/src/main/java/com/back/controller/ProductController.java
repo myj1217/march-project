@@ -56,7 +56,7 @@ public class ProductController {
 
   // /api/products/list를 user, admin 권한을 가지고 있는 사용자만 접근하도록 제한.
   //  @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-  @PreAuthorize("hasRole('ROLE_USER')")
+  // @PreAuthorize("hasRole('ROLE_USER')")
   @GetMapping("/list")
   public PageResponseDTO<ProductDTO> list(PageRequestDTO pageRequestDTO){
     log.info("list----------------------"+ pageRequestDTO);
