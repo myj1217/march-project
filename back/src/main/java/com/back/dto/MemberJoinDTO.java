@@ -1,10 +1,17 @@
 //MemberJoinDTO 
 package com.back.dto;
 
+import com.back.domain.MemberRole;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.FetchType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class MemberJoinDTO {
@@ -18,12 +25,14 @@ public class MemberJoinDTO {
     private String pw;
 
     @NotBlank(message = "이름은 필수 입력 값입니다.")
+    @Length(min = 2, message = "이름은 2자 이상으로 입력해주세요.")
     private String name;
 
     @NotBlank(message = "전화번호 필수 입력 값입니다.")
     private String number;
 
     @NotBlank(message = "닉네임은 필수 입력 값입니다.")
+    @Length(min = 2, max = 16, message = "닉네임은 2자 이상, 16자 이하로 입력해주세요.")
     private String nickname;
 
     @NotBlank(message = "우편번호 필수 입력 값입니다.")
@@ -35,4 +44,6 @@ public class MemberJoinDTO {
     private String detailAddress;		// 상세 주소(직접 입력하는값 ex. 3층)
 
     private boolean social;
+
+    private List<MemberRole> memberRoleList = new ArrayList<>();
 }

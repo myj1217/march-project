@@ -3,12 +3,6 @@ package com.back.dto;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -44,15 +38,16 @@ public class MemberSecurityDTO extends User {
 
     private String detailAddress;		// 상세 주소(직접 입력하는값 ex. 3층)
 
-    private List<String> roleNames = new ArrayList<>();
+    private List<String> memberRoleList = new ArrayList<>();
+
 
 
     public MemberSecurityDTO(String email, String pw, String name, boolean social, String number, String nickname,
-                             String zipCode, String streetAddress, String detailAddress, List<String> roleNames) {
+                             String zipCode, String streetAddress, String detailAddress, List<String> memberRoleList) {
         super(
                 email,
                 pw,
-                roleNames.stream().map(str -> new SimpleGrantedAuthority("ROLE_"+str)).collect(Collectors.toList()));
+                memberRoleList.stream().map(str -> new SimpleGrantedAuthority("ROLE_"+str)).collect(Collectors.toList()));
 
         this.email = email;
         this.pw = pw;
@@ -63,7 +58,7 @@ public class MemberSecurityDTO extends User {
         this.zipCode = zipCode;
         this.streetAddress = streetAddress;
         this.detailAddress = detailAddress;
-        this.roleNames = roleNames;
+        this.memberRoleList = memberRoleList;
     }
 
     //JWT문자열 생성시에 사용. 현재사용자정보를 Map타입으로 전환.
@@ -81,7 +76,7 @@ public class MemberSecurityDTO extends User {
         dataMap.put("nickname", nickname);
         dataMap.put("streetAddress", streetAddress);
         dataMap.put("detailAddress", detailAddress);
-        dataMap.put("roleNames", roleNames);
+        dataMap.put("memberRoleList", memberRoleList);
 
 
         return dataMap;

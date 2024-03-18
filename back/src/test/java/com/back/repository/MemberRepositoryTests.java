@@ -23,9 +23,9 @@ public class MemberRepositoryTests {
     public void testInsertMember(){
         for (int i = 0; i < 10; i++) {
             Member member = Member.builder()
-                    .email("user"+i+"@aaa.com")
+                    .email("user"+(i+20)+"@aaa.com")
                     .pw(passwordEncoder.encode("1111"))
-                    .name("USER"+i)
+                    .name("USER"+(i+20))
                     .build();
             member.addRole(MemberRole.USER);
             if(i >= 5){
@@ -41,7 +41,7 @@ public class MemberRepositoryTests {
     @Test
     public void testInsertMember2(){
             Member member = Member.builder()
-                    .email("11111@aaa.com")
+                    .email("222@aaa.com")
                     .pw(passwordEncoder.encode("1111"))
                     .name("김OO")
                     .nickname("테스트")

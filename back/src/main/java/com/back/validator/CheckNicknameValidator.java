@@ -1,7 +1,6 @@
 package com.back.validator;
 
 import com.back.dto.MemberJoinDTO;
-import com.back.dto.MemberSecurityDTO;
 import com.back.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

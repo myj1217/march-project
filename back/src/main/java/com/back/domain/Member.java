@@ -1,9 +1,7 @@
 package com.back.domain;
 
-import com.back.dto.MemberSecurityDTO;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.*;
 
@@ -44,9 +42,6 @@ public class Member {
     }
 
 
-    public void clearRole(){
-        memberRoleList.clear();
-    }
 
     public void changeNickname(String nickname) {this.nickname = nickname; }
 

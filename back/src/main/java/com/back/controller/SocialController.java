@@ -47,30 +47,6 @@ public class SocialController {
 
         return claims;
     }
-    @PutMapping("/member/modify")
-    public String modify(@RequestBody @Valid MemberModifyDTO memberModifyDTO, Errors errors, Model model) {
 
-        if (errors.hasErrors()) {
-            /* 정보수정 실패시 입력 데이터 값을 유지 */
-            model.addAttribute("memberModifyDTO", memberModifyDTO);
-            /* 유효성 통과 못한 필드와 메시지를 핸들링 */
-            Map<String, String> validatorResult = memberService.validateHandling(errors);
-
-            for (String key : validatorResult.keySet()) {
-                model.addAttribute(key, validatorResult.get(key));
-            }
-
-            /* 정보수정 페이지로 다시 리턴 */
-
-            return "/member/modify";
-
-        }
-
-        //수정처리 완료
-        memberService.modifyMember(memberModifyDTO);
-
-        return "redirect:/member/modify";
-
-    }
 
 }
