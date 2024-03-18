@@ -1,26 +1,9 @@
-import './App.css';
-import ShopCategory from './among/ShopCategory';
-import SubFoot from './foot/SubFoot';
-import WhatEtsy from './foot/WhatEtsy';
-import Header from './headers/Header';
-import Et from './foot/Et';
-import AppDown from './foot/AppDown';
-import LastF from './foot/LastF';
-
-
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import root from "./router/root";
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <ShopCategory />
-      <WhatEtsy />
-      <SubFoot />
-      <Et />
-      <AppDown />
-      <LastF />
-    </div>
-  );
+  return <RouterProvider router={root} />;
 }
 
 export default App;
